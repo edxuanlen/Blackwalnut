@@ -135,18 +135,18 @@ python3 -m scripts.retrain \
 
   如果想直接查看最终的准确率，先编辑 Codelab/scripts/evaluate.py 文件，根据下面的提示找到并修改程序。
 
-# 找到这段代码with load\_graph(graph\_file\_name).as\_default() as graph:
-
+# 找到这段代码
+```python
+with load\_graph(graph\_file\_name).as\_default() as graph:
     ground\_truth\_input = tf.placeholder(
-
         tf.float32, [None, 5], name=&#39;GroundTruthInput&#39;)
-
-# 修改为这段代码with load\_graph(graph\_file\_name).as\_default() as graph:
-
+```
+# 修改为这段代码with 
+```python
+load\_graph(graph\_file\_name).as\_default() as graph:
     ground\_truth\_input = tf.placeholder(
-
         tf.float32, [None, (&#39;替换为训练用标签的种类数&#39;)], name=&#39;GroundTruthInput&#39;)
-
+```
 # --------------------------------------------------------------------
 
 # 找到这段代码
@@ -159,18 +159,18 @@ image\_dir = &#39;data&#39;
 
 # --------------------------------------------------------------------
 
-# 找到这段代码with tf.Session(graph=graph) as sess:
-
+# 找到这段代码
+```python
+with tf.Session(graph=graph) as sess:
     for filename, ground\_truth in zip(filenames, ground\_truths):
-
         image = Image.open(filename).resize((224,224),Image.ANTIALIAS)
-
-# 修改为这段代码with tf.Session(graph=graph) as sess:
-
+```
+# 修改为这段代码
+```python
+with tf.Session(graph=graph) as sess:
     for filename, ground\_truth in zip(filenames, ground\_truths):
-
         image = Image.open(filename).resize((128,128),Image.ANTIALIAS)
-
+```
   切换到 Terminal 界面，进入 Codelab 目录，执行评估程序。
 
 python3 -m scripts.evaluate output/retrained\_graph\_128\_0\_01.pb
@@ -362,7 +362,7 @@ python3 -m scripts.evaluate output/retrained\_graph\_224\_0\_01.pb
 
   切换到 jupyter 项目树界面，在 Codelab 目录下新建名为 test 的目录。从网上寻找对应的车标图片，放在 test 目录下，这里寻找的照片不需要特别注意分辨率，测试程序中内置了统一分辨率的功能。
 
-  参考下面的程序执行在线测试，测试结果会显示在输出中，每次执行会选择目录中的一张图片预测。
+  参考下面的程序执行在线测试，测试结果会显示在输出中，每次执行会选择目录中的一张图片预测。      
 
 - graph 表示训练后生成的 PB 文件所在的路径
 - image 表示要预测的图片所在的路径
