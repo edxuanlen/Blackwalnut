@@ -101,29 +101,29 @@ cp -r ../Tools/project/\* .
 - testing\_percentage 测试集的比例，默认值为 10
 - validation\_percentage 验证集的比例，默认为 10
 
-python3 -m scripts.retrain \
+    python3 -m scripts.retrain \
 
---bottleneck\_dir=tmp/bottlenecks \
+    --bottleneck\_dir=tmp/bottlenecks \
 
---how\_many\_training\_steps=5000 \
+    --how\_many\_training\_steps=5000 \
 
---model\_dir=model \
+    --model\_dir=model \
 
---summaries\_dir=tmp/training\_summaries/&quot;${ARCHITECTURE}&quot; \
+    --summaries\_dir=tmp/training\_summaries/&quot;${ARCHITECTURE}&quot; \
 
---output\_graph=output/retrained\_graph\_128\_0\_01.pb \
+    --output\_graph=output/retrained\_graph\_128\_0\_01.pb \
 
---output\_labels=output/retrained\_labels\_128\_0\_01.txt \
+    --output\_labels=output/retrained\_labels\_128\_0\_01.txt \
 
---architecture=&quot;${ARCHITECTURE}&quot; \
+    --architecture=&quot;${ARCHITECTURE}&quot; \
 
---testing\_percentage=10 \
+    --testing\_percentage=10 \
 
---validation\_percentage=10 \
+    --validation\_percentage=10 \
 
---image\_dir=data \
+    --image\_dir=data \
 
---learning\_rate=0.001
+    --learning\_rate=0.001
 
   在执行训练后，程序会自动下载模型文件并进行训练，并且训练结束后在 output\_graph 目录下生成 retrained\_graph\_128\_0\_01.pb 文件，在 output\_labels 目录下生成 retrained\_labels\_128\_0\_01.txt 文件。
 
@@ -186,7 +186,7 @@ python3 -m scripts.evaluate output/retrained\_graph\_128\_0\_01.pb
 
   Learning Rate 为 0.1 时：
 
-python3 -m scripts.retrain \
+    python3 -m scripts.retrain \
 
     --bottleneck\_dir=tmp/bottlenecks \
 
@@ -238,7 +238,7 @@ python3 -m scripts.retrain \
 
   Learning Rate 为 0.0001 时：
 
-python3 -m scripts.retrain \
+    python3 -m scripts.retrain \
 
     --bottleneck\_dir=tmp/bottlenecks \
 
@@ -264,7 +264,7 @@ python3 -m scripts.retrain \
 
   Learning Rate 为 0.00001 时：
 
-python3 -m scripts.retrain \
+    python3 -m scripts.retrain \
 
     --bottleneck\_dir=tmp/bottlenecks \
 
@@ -367,14 +367,14 @@ python3 -m scripts.evaluate output/retrained\_graph\_224\_0\_01.pb
 - graph 表示训练后生成的 PB 文件所在的路径
 - image 表示要预测的图片所在的路径
 
-python3 -m scripts.label\_image \
+    python3 -m scripts.label\_image \
 
---graph=output/retrained\_graph\_224\_0\_01.pb  \
+    --graph=output/retrained\_graph\_224\_0\_01.pb  \
 
---labels=output/retrained\_labels\_224\_0\_01.txt  \
+    --labels=output/retrained\_labels\_224\_0\_01.txt  \
 
---input\_height=224 \
+    --input\_height=224 \
 
---input\_width=224 \
+    --input\_width=224 \
 
---image=test/image.jpg
+    --image=test/image.jpg
